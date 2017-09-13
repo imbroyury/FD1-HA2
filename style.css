@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    width: 100vw;
+    min-width: 800px;
+    height: 100vh;
+    min-height: 500px;
+    font-family: Calibri, sans-serif;
+}
+
+.flex-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.col-1 {
+    display: flex;
+    width: 25%;
+    background-color: #99D3DF;
+    justify-content: center;
+    /* using z-index for a box-shadow to show up */
+    z-index: 1;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.col-2 {
+    width: 75%;
+    background-color: #E9E9E9;
+    flex-direction: column;
+}
+
+/* styles for menu */
+.col-1 .menu {
+    width: 80%;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+.col-1 .menu li {
+    list-style-type: none;
+    text-align: center;
+    margin: 10%;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 0 0 5px black;
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.col-1 .menu li a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    transition: all 0.1s ease-in-out;
+}
+
+.col-1 .menu li:hover {
+    background-color: #88BBD6;
+    box-shadow: 0 0 20px black;
+}
+
+.col-1 .menu li:hover a {
+    color: white;
+    font-size: 1.05em;
+}
+
+/* styling for main text area */
+.col-2 .col-2-item {
+    padding: 7%;
+}
+
+/* :last-child (Main section) is displayed by default,
+ * while all other items are hidden
+ */
+.col-2 .col-2-item:not(:last-child) {
+    display: none;
+}
+
+/* when an element is targeted it is displayed */
+.col-2 .col-2-item:target {
+    display: block;
+}
+
+/* when an element other than :last-child is targeted, :last-child is hidden
+ * ~ selector works here because any other item will obviously precede :last-child
+ */
+.col-2 .col-2-item:target ~ .col-2-item:last-child {
+    display: none;
+}
+
+/* general styling for ::before pseudo-elements */
+.menu li a::before {
+    margin-right: 5px;
+    font-weight: bold;
+    color: #b83e3e;
+}
+
+/* pseudo-elements for links */
+#main-link::before {
+    content: "\2302";
+}
+
+#contacts-link::before {
+    content: "\2709";
+}
+
+#about-link::before {
+    content: "i";
+}
+
+#facebook-link::before {
+    content: "f";
+}
+
+#twitter-link::before {
+    content: "t";
+}
+
+/* arrow appears if link has target=_blank */
+.col-1 .menu a[target=_blank]::after {
+    content: "\2B08";
+    margin-left: 5px;
+    font-weight: bold;
+    color: #b83e3e;
+}
